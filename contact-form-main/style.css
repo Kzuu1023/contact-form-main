@@ -52,6 +52,12 @@ label {
     text-wrap: nowrap;
 }
 
+span {
+    font-size: 0.8rem;
+    padding: 0;
+    margin: 0;
+}
+
 .form__container form {
     display: grid;
     grid-template-columns: repeat(4, 1fr);

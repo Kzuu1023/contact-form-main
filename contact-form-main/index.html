@@ -25,17 +25,20 @@
                         <div class="firstname__container">
                             <label for="fname">First Name *</label>
                             <input type="text" id="fname" name="fname" />
+                            <span class="error"></span>
                         </div>
 
                         <div class="lastname__container">
                             <label for="lname">Last Name *</label>
                             <input type="text" id="lname" name="lname" />
+                            <span class="error"></span>
                         </div>
                     </div>
 
                     <div class="email__container">
                         <label for="email">Email Address *</label>
                         <input type="email" id="email" name="email" />
+                        <span class="error"></span>
                     </div>
 
                     <div class="query__type-container">
@@ -62,6 +65,7 @@
                             </div>
                         </div>
                     </div>
+                    <span class="error"></span>
 
                     <div class="message__container">
                         <label for="message" class="message-label"
@@ -73,6 +77,7 @@
                             class="message"
                         ></textarea>
                     </div>
+                    <span class="error"></span>
 
                     <div class="consent__container">
                         <input type="checkbox" id="consent" name="consent" />
@@ -80,6 +85,7 @@
                             >I consent to being contacted by the team *</label
                         >
                     </div>
+                    <span class="error"></span>
 
                     <div class="btn__container">
                         <button id="submit-btn" type="submit">Submit</button>
@@ -95,5 +101,6 @@
         by the team To submit this form, please consent to being contacted
         Submit Message Sent! Thanks for completing the form. We'll be in touch
         soon! -->
+        <script src="script.js"></script>
     </body>
 </html>
