@@ -78,6 +78,7 @@ h1 {
 }
 
 .fullname__container {
+    max-width: 100%;
     display: flex;
     gap: 0.5rem;
     grid-column: 1 / 5;
@@ -153,4 +154,44 @@ h1 {
 }
 .attribution a {
     color: hsl(228, 45%, 44%);
+}
+
+@media screen and (max-width: 375px) {
+    .form__container form {
+        display: flex;
+        flex-direction: column;
+    }
+
+    /* Stack fullname inputs vertically */
+    .fullname__container {
+        display: flex;
+        flex-direction: column;
+        gap: 0.5rem; /* Ensure proper spacing between fields */
+    }
+
+    .fullname__container div input {
+        width: 100%; /* Make inputs full width */
+    }
+
+    /* Adjust consent container for better alignment */
+    .consent__container {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        max-width: 100%; /* Ensure full width for smaller screens */
+        gap: 0.5rem; /* Add spacing between elements */
+    }
+
+    /* Update button styling for small screens */
+    button {
+        font-size: 0.7rem; /* Reduce font size */
+        min-height: 2.5rem; /* Adjust button height */
+        padding: 0.3rem 0.8rem; /* Adjust padding */
+    }
+
+    /* Ensure message textarea fits nicely */
+    .message__container textarea {
+        height: 100px; /* Reduce height */
+        font-size: 0.9rem; /* Adjust font size */
+    }
 }
