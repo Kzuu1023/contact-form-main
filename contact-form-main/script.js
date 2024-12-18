@@ -1,9 +1,8 @@
 const fname = document.getElementById("fname");
 const lname = document.getElementById("lname");
 const email = document.getElementById("email");
-let genInquiry = document.getElementById("inquiry");
-let reqSupport = document.getElementById("request");
-const messages = document.getElementById("message");
+const queryTypeInputs = document.querySelectorAll("input[name='query_type']");
+const message = document.getElementById("message");
 const consent = document.getElementById("consent");
 const submitBtn = document.getElementById("submit-btn");
 const form = document.getElementById("form");
@@ -17,18 +16,18 @@ submitBtn.addEventListener("click", function () {
         if (errorMsg) {
             errorMsg.textContent = message;
         }
-
         input.parentElement.classList.add("invalid");
         input.parentElement.classList.remove("valid");
         input.style.borderColor = "var(--red)";
     };
 
-    const setSuccess = (input, message) => {
+    const setSuccess = (input) => {
         const errorMsg = input.parentElement.querySelector(".error");
 
         if (errorMsg) {
-            errorMsg.textContent = message;
+            errorMsg.textContent = "";
         }
+
         input.parentElement.classList.add("valid");
         input.parentElement.classList.remove("invalid");
         input.style.borderColor = "var(--green-600)";
@@ -37,6 +36,40 @@ submitBtn.addEventListener("click", function () {
     const isValidEmail = (email) => {
         const re = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
         return re.test(String(email).toLowerCase());
+    };
+
+    const isValidQueryType = () => {
+        // queryTypeInputs.forEach((radio) => {
+        if (queryTypeInputs[0].checked || queryTypeInputs[1].checked) {
+            isValid = true;
+            setSuccess(queryTypeInputs[0].parentElement.parentElement);
+            setSuccess(queryTypeInputs[1].parentElement.parentElement);
+            return true;
+        } else {
+            isValid = false;
+            setError(
+                queryTypeInputs[0].parentElement.parentElement,
+                "Please select a query type"
+            );
+            setError(
+                queryTypeInputs[1].parentElement.parentElement,
+                "Please select a query type"
+            );
+            return false;
+        }
+        // });
+    };
+
+    const isValidConsent = () => {
+        if (consent.checked) {
+            isValid = true;
+            setSuccess(consent.parentElement);
+        } else {
+            setError(
+                consent.parentElement.nextElementSibling,
+                "To submit the form, please consent to being contacted"
+            );
+        }
     };
 
     if (fname.value) {
@@ -62,35 +95,24 @@ submitBtn.addEventListener("click", function () {
         setSuccess(email);
     }
 
-    if (!genInquiry.value) {
-        isValid = false;
-        setError(genInquiry, "Please select a query type");
+    if (isValidQueryType()) {
+        isValid = true;
     } else {
-        setSuccess(genInquiry);
+        isValid = false;
     }
 
-    if (!reqSupport.value) {
-        isValid = false;
-        setError(reqSupport, "Please select a query type");
+    if (message.value) {
+        isValid = true;
+        setSuccess(message);
     } else {
-        setSuccess(reqSupport);
+        isValid = false;
+        setError(message, "This field is required");
     }
 
-    if (!messages.value) {
-        isValid = false;
-        setError(messages, "This field is required");
-    } else {
-        setSuccess(messages);
-    }
-
-    if (consent.checked) {
-        setSuccess(consent);
+    if (isValidConsent()) {
+        isValid = true;
     } else {
         isValid = false;
-        setError(
-            consent,
-            "To submit the form, please consent to being contacted"
-        );
     }
 });
 

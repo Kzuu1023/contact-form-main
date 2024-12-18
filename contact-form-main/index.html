@@ -42,9 +42,7 @@
                     </div>
 
                     <div class="query__type-container">
-                        <label class="query__title"
-                            >Query Type <span class="required">*</span></label
-                        >
+                        <label class="query__title">Query Type *</label>
                         <div class="query__type">
                             <div class="query__option">
                                 <input
@@ -63,9 +61,9 @@
                                 />
                                 <label for="inquiry"> Support Request </label>
                             </div>
+                            <span class="error"></span>
                         </div>
                     </div>
-                    <span class="error"></span>
 
                     <div class="message__container">
                         <label for="message" class="message-label"
@@ -76,16 +74,23 @@
                             name="message"
                             class="message"
                         ></textarea>
+                        <span class="error"></span>
                     </div>
-                    <span class="error"></span>
 
                     <div class="consent__container">
-                        <input type="checkbox" id="consent" name="consent" />
-                        <label for="consent"
-                            >I consent to being contacted by the team *</label
-                        >
+                        <div class="consent-box">
+                            <input
+                                type="checkbox"
+                                id="consent"
+                                name="consent"
+                            />
+                            <label for="consent"
+                                >I consent to being contacted by the team
+                                *</label
+                            >
+                        </div>
+                        <span class="error"></span>
                     </div>
-                    <span class="error"></span>
 
                     <div class="btn__container">
                         <button id="submit-btn" type="submit">Submit</button>

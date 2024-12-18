@@ -53,9 +53,9 @@ label {
 }
 
 span {
+    color: var(--red);
     font-size: 0.8rem;
-    padding: 0;
-    margin: 0;
+    text-wrap: nowrap;
 }
 
 .form__container form {
@@ -142,10 +142,15 @@ h1 {
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     resize: none; /* Disable resizing for consistent appearance */
 }
+
 .consent__container {
-    display: flex;
-    align-items: center;
     grid-column: 1 / 5;
+}
+
+.consent__container .consent-box {
+    display: flex;
+    gap: 0.5rem;
+    align-items: center;
 }
 
 .btn__container {
