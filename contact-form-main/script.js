@@ -5,6 +5,7 @@ const queryTypeInputs = document.querySelectorAll("input[name='query_type']");
 const message = document.getElementById("message");
 const consent = document.getElementById("consent");
 const submitBtn = document.getElementById("submit-btn");
+const submitted = document.getElementById("success-msg");
 const form = document.getElementById("form");
 
 submitBtn.addEventListener("click", function () {
