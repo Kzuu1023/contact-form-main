@@ -83,16 +83,19 @@ h1 {
 }
 
 .fullname__container {
-    max-width: 100%;
+    width: 100%;
     display: flex;
     gap: 0.5rem;
     grid-column: 1 / 5;
 }
 
-.fullname__container div input {
-    width: 20.5rem;
+.firstname__container,
+.lastname__container {
+    width: 100%;
 }
 
+.firstname__container input,
+.lastname__container input,
 .email__container input {
     width: 100%;
 }
