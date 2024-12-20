@@ -6,6 +6,8 @@ const message = document.getElementById("message");
 const consent = document.getElementById("consent");
 const submitBtn = document.getElementById("submit-btn");
 const submitted = document.getElementById("success-msg");
+const messageSent = document.getElementById("message-sent");
+
 const form = document.getElementById("form");
 
 submitBtn.addEventListener("click", function () {
@@ -58,18 +60,18 @@ submitBtn.addEventListener("click", function () {
             );
             return false;
         }
-        // });
     };
 
     const isValidConsent = () => {
         if (consent.checked) {
-            isValid = true;
             setSuccess(consent.parentElement);
+            return true;
         } else {
             setError(
                 consent.parentElement.nextElementSibling,
                 "To submit the form, please consent to being contacted"
             );
+            return false;
         }
     };
 
@@ -117,6 +119,22 @@ submitBtn.addEventListener("click", function () {
     }
 });
 
+const submittedSuccessfully = () => {
+    let iconElem = document.createElement("img");
+    iconElem.src = "./assets/images/icon-success-check.svg";
+    messageSent.appendChild(iconElem);
+    submitted.style.backgroundColor = "var(--grey-900)";
+    let span = document.createTextNode("Message Sent!");
+    messageSent.appendChild(span);
+
+    let description = document.createTextNode(
+        "Thanks for completing the form. We'll be in touch soon!"
+    );
+    submitted.appendChild(description);
+};
+
 form.addEventListener("submit", (e) => {
     e.preventDefault();
+
+    submittedSuccessfully();
 });
