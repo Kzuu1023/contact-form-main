@@ -45,6 +45,8 @@ const isValidQueryType = () => {
         isValid = true;
         setSuccess(queryTypeInputs[0].parentElement.parentElement);
         setSuccess(queryTypeInputs[1].parentElement.parentElement);
+        queryTypeInputs[0].parentElement.style.borderColor = "var(--green-600)";
+        queryTypeInputs[1].parentElement.style.borderColor = "var(--green-600)";
         return true;
     } else {
         isValid = false;
@@ -63,6 +65,7 @@ const isValidQueryType = () => {
 const isValidConsent = () => {
     if (consent.checked) {
         setSuccess(consent.parentElement);
+
         return true;
     } else {
         setError(
@@ -137,6 +140,9 @@ const submittedSuccessfully = () => {
         "Thanks for completing the form. We'll be in touch soon!"
     );
     submitted.appendChild(description);
+
+    consent.nextElementSibling.textContent =
+        "I hereby consent to being contacted by the team *";
 
     const inputs = [fname, lname, email, message];
 
